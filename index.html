@@ -23,9 +23,14 @@
     }
 
     header {
+      position: relative;
       text-align: center;
-      padding: 5rem 1rem 4rem;
-      background: linear-gradient(to bottom, #fffdf9, #faf8f6);
+      padding: 6rem 1rem 5rem;
+      background-image:
+        linear-gradient(rgba(255,253,249,0.65), rgba(255,253,249,0.85)),
+        url('header-bakgrunn.jpg');
+      background-size: cover;
+      background-position: center;
     }
 
     header h1 {
@@ -34,11 +39,13 @@
       color: var(--blue);
       font-size: 4rem;
       margin-bottom: 0.4rem;
+      text-shadow: 0 2px 6px rgba(255,255,255,0.8);
     }
 
     header p {
       margin: 0.4rem 0;
       color: var(--green);
+      text-shadow: 0 1px 4px rgba(255,255,255,0.8);
     }
 
     .subtitle {
@@ -350,3 +357,4 @@ function closeModal() {
 
 </body>
 </html>
+
