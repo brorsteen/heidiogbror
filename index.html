@@ -24,28 +24,50 @@
 
     header {
       position: relative;
-      text-align: center;
-      padding: 6rem 1rem 5rem;
-      background-image:
-        linear-gradient(rgba(255,253,249,0.1), rgba(255,253,249,0.1)),
-        url('header_bakgrunn.png');
+      min-height: 70vh;
+      background-image: url('header-bakgrunn.jpeg');
       background-size: cover;
       background-position: center;
+    }
+
+    .header-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1.5rem 1rem 2rem;
+      text-align: center;
+    }
+
+    .header-overlay p {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    .header-content {
+      background: rgba(255,253,249,0.75);
+      backdrop-filter: blur(2px);
+      padding: 1.5rem 2rem 1.8rem;
+      border-radius: 18px;
+      max-width: 90%;
+      margin-bottom: 1rem;
     }
 
     header h1 {
       font-family: "Amatic SC", cursive;
       letter-spacing: 0.18em;
-      color: var(--black);
+      color: var(--blue);
       font-size: 4rem;
       margin-bottom: 0.4rem;
-      text-shadow: 0 2px 6px rgba(255,255,255,0.1);
+      text-shadow: 0 2px 6px rgba(255,255,255,0.8);
     }
 
     header p {
       margin: 0.4rem 0;
-      color: var(--black);
-      text-shadow: 0 1px 4px rgba(255,255,255,0.1);
+      color: var(--green);
+      text-shadow: 0 1px 4px rgba(255,255,255,0.8);
     }
 
     .subtitle {
@@ -174,11 +196,17 @@
 <body>
 
 <header>
-  <h1>Heidi &amp; Bror</h1>
-  <p class="subtitle">gifter seg</p>
-  <p>13. juni 2026</p>
-  <p>Aspargesgården</p>
+  <div class="header-overlay">
+    <p>13. juni 2026 · Aspargesgården</p>
+  </div>
 </header>
+
+<section style="margin-top:2.5rem;">
+  <div style="text-align:center;">
+    <h1>Heidi &amp; Bror</h1>
+    <p class="subtitle">Vi gifter oss 💚</p>
+  </div>
+</section>
 
 <section>
   <div class="card">
@@ -357,4 +385,3 @@ function closeModal() {
 
 </body>
 </html>
-
