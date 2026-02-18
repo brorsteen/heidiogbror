@@ -92,6 +92,13 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.06);
     }
 
+    /* Fremhevet kort for RSVP */
+    .card.rsvp-highlight {
+      background: #eef4f7; /* lys blågrønn tone */
+      border: 2px solid var(--blue);
+      box-shadow: 0 14px 34px rgba(31,95,122,0.18);
+    }
+
     h2 {
       text-align: center;
       margin-bottom: 1.2rem;
@@ -285,13 +292,20 @@
   <div class="card">
     <h2>Spilleliste</h2>
     <p>Vi vil gjerne ha hjelp til å finne gode sanger for kvelden. Hvis du har noen skikkelige <em>bangers</em>, skriv dem gjerne inn her – da hjelper du både oss og DJ-en 🙂</p>
-    <label for="songs">Forslag til sanger</label>
-    <textarea id="songs" name="sangforslag" placeholder="Skriv gjerne én eller flere sanger, artist + tittel"></textarea>
+
+    <form name="playlist" method="post" data-netlify="true">
+      <input type="hidden" name="form-name" value="playlist">
+
+      <label for="songs">Forslag til sanger</label>
+      <textarea id="songs" name="sangforslag" placeholder="Skriv gjerne én eller flere sanger, artist + tittel" required></textarea>
+
+      <button type="submit">Send sangforslag</button>
+    </form>
   </div>
 </section>
 
 <section>
-  <div class="card">
+  <div class="card rsvp-highlight">
     <h2>Gi oss beskjed</h2>
     <form name="rsvp" method="post" data-netlify="true" onsubmit="handleSubmit(event)">
       <input type="hidden" name="form-name" value="rsvp">
