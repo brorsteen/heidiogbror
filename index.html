@@ -293,7 +293,7 @@
     <h2>Spilleliste</h2>
     <p>Vi vil gjerne ha hjelp til å finne gode sanger for kvelden. Hvis du har noen skikkelige <em>bangers</em>, skriv dem gjerne inn her – da hjelper du både oss og DJ-en 🙂</p>
 
-    <form name="playlist" method="post" data-netlify="true">
+    <form name="playlist" method="post" data-netlify="true" onsubmit="handlePlaylistSubmit(event)">
       <input type="hidden" name="form-name" value="playlist">
 
       <label for="songs">Forslag til sanger</label>
@@ -405,9 +405,27 @@ function handlePersonAttendance(n) {
 
 function handleSubmit(event) {
   event.preventDefault();
+  const scrollY = window.scrollY;
   const data = new FormData(event.target);
   const anyYes = [...data.entries()].some(([k,v]) => k.startsWith('deltar_') && v === 'ja');
-  fetch('/', { method:'POST', body:data }).then(()=>showModal(anyYes));
+  fetch('/', { method:'POST', body:data }).then(() => {
+    showModal(anyYes);
+    window.scrollTo(0, scrollY);
+  });
+}
+
+function handlePlaylistSubmit(event) {
+  event.preventDefault();
+  const scrollY = window.scrollY;
+  const data = new FormData(event.target);
+  fetch('/', { method:'POST', body:data }).then(() => {
+    document.getElementById('modal-content').innerHTML =
+      '<h3>Tusen takk! 🎶</h3><p>Elsker bidraget – dette hjelper både oss og DJ-en masse 💃🕺</p>';
+    document.getElementById('modal').style.display = 'flex';
+    event.target.reset();
+    window.scrollTo(0, scrollY);
+  });
+}).then(()=>showModal(anyYes));
 }
 
 function showModal(yes) {
@@ -419,8 +437,17 @@ function showModal(yes) {
 }
 
 function closeModal() {
-  document.getElementById('modal').style.display = 'none';
+  const modal = document.getElementById('modal');
+  modal.style.display = 'none';
 }
+
+// Lukk popup ved klikk utenfor innholdet
+window.addEventListener('click', function(e) {
+  const modal = document.getElementById('modal');
+  if (e.target === modal) {
+    closeModal();
+  }
+});
 </script>
 
 </body>
