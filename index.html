@@ -74,7 +74,7 @@
     .subtitle {
       font-family: "Amatic SC", cursive;
       letter-spacing: 0.18em;
-      color: var(--blue);
+      color: #ffffff;
       margin: 0.4rem 0 0.2rem;
       font-size: 1.6rem;
     }
@@ -216,7 +216,7 @@
     <p><strong>Sted:</strong> Familiehytta til Heidi</p>
     <p>Fristad 55, 3280 Tjodalyng</p>
     <p>Fra ca. kl. 18:00 satser vi på food truck eller lignende.</p>
-    <p><strong>Antrekk:</strong> Casual – vi satser på shorts (Ta med badetøy!)☀️</p>
+    <p><strong>Antrekk:</strong> Casual – vi satser på shorts ☀️</p>
     <div class="map-wrapper">
       <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Fristad+55,+3280+Tjodalyng" target="_blank" rel="noopener">📍 Se kart til Fristad</a>
     </div>
@@ -227,7 +227,7 @@
   <div class="card">
     <h2>Lørdag 13. juni</h2>
     <p><strong>Sted:</strong> Aspargesgården, Tjølling</p>
-    <p><strong>Antrekk:</strong> Dress eller sommerlig pent (brudgommen stiller i dress)</p>
+    <p><strong>Antrekk:</strong> Dress eller sommerlig pent (brudgommen stiller ikke i smoking)</p>
     <p><strong>12:30</strong> – Oppmøte</p>
     <p><strong>13:00</strong> – Vielse</p>
     <p><strong>13:30</strong> – Bryllupskake og fingermat</p>
@@ -270,14 +270,23 @@
 <section>
   <div class="card">
     <h2>Tips</h2>
-    <p>Ta med dansesko uten stiletthæler – det er ganske røft plankegulv i låven.</p>
+    <p>Ta med dansesko uten stiletthæler – det er ganske røft plankegulv på låven.</p>
   </div>
 </section>
 
 <section>
   <div class="card">
     <h2>Ønskeliste</h2>
-    <p>Hvis du har lyst å gi noe, kommer det etterhvert en lenke til ønskelisten vår her.</p>
+    <p>Her kommer det etter hvert en lenke til ønskelisten vår.</p>
+  </div>
+</section>
+
+<section>
+  <div class="card">
+    <h2>Spilleliste</h2>
+    <p>Vi vil gjerne ha hjelp til å finne gode sanger for kvelden. Hvis du har noen skikkelige <em>bangers</em>, skriv dem gjerne inn her – da hjelper du både oss og DJ-en 🙂</p>
+    <label for="songs">Forslag til sanger</label>
+    <textarea id="songs" name="sangforslag" placeholder="Skriv gjerne én eller flere sanger, artist + tittel"></textarea>
   </div>
 </section>
 
@@ -290,7 +299,7 @@
       <label>Jeg svarer for</label>
       <select id="count" name="antall" onchange="handleCountChange()" required>
         <option value="">Velg</option>
-        <option value="1">Meg selv</option>
+        <option value="1">Kun meg selv</option>
         <option value="2">Meg selv + 1</option>
       </select>
 
